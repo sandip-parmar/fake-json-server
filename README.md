@@ -10,15 +10,15 @@ Sqlite database
 Use nodemon if you want to make changes in server. It will keep track of file changes and restart server when any change is detected. 
 
 To install dependencies  
-npm install
+`npm install`
 
 To start server  
 cd node/bin  
     #if nodmon installed  
-    nodemon www -w ../  
+    `nodemon www -w ../` 
 
     #if not  
-    node wwww  
+    `node wwww`  
 
 We used '-w ../' in nodemon command so that it can watch parent directory which is root directory in our case. 
 
