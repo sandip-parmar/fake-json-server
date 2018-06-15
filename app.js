@@ -12,6 +12,8 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+
+/* User sqlite database */
 const sqlite3 = require('sqlite3').verbose();
 var app = express();
 
