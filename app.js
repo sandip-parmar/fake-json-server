@@ -1,3 +1,9 @@
+/* To process environment variables */
+const result = require('dotenv').config();
+if(result.error){
+  throw result.error;
+}
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -8,6 +14,15 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const sqlite3 = require('sqlite3').verbose();
 var app = express();
+
+/* Authentication with Auth0 */
+const authMiddleware = require('./middleware/auth');
+app.use(authMiddleware.checkJwt)
+app.use(function(err, req, res, next){
+  if(err.name === 'UnauthorizedError'){
+    res.status(401).json({message: 'Missing or invalid token'});
+  }
+});
 
 app.use('/static', express.static('public'));
 // view engine setup
