@@ -4,11 +4,11 @@
  * Module dependencies.
  */
 
-var app = require('../app');
-var debug = require('debug')('nodeapp:server');
-var http = require('http');
-let bodyParser = require('body-parser');
 
+let app = require('../app');
+const debug = require('debug')('nodeapp:server');
+const http = require('http');
+let bodyParser = require('body-parser');
 
 /**
  * Get port from environment and store in Express.
@@ -16,6 +16,9 @@ let bodyParser = require('body-parser');
 
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
+
+
+/* If you want all apis to be secured - uncomment following line*/
 
 /** Make application user body-parser so that we can retrieve post request parameters */
 app.use(bodyParser.json()); // support json encoded bodies
